@@ -1,7 +1,7 @@
 import request from '@/utils/request'
 
 const userApi = {
-  Login: '/auth/login',
+  Login: '/user/login',
   Logout: '/auth/logout',
   ForgePassword: '/auth/forge-password',
   Register: '/auth/register',
@@ -18,8 +18,6 @@ const userApi = {
  * parameter: {
  *     username: '',
  *     password: '',
- *     remember_me: true,
- *     captcha: '12345'
  * }
  * @param parameter
  * @returns {*}
