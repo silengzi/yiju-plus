@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="generator.mapper.ProjectMapper">
+
+    <resultMap id="BaseResultMap" type="com.silengzi.usercenter.model.domain.Project">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="provice" column="provice" jdbcType="VARCHAR"/>
+            <result property="city" column="city" jdbcType="VARCHAR"/>
+            <result property="area" column="area" jdbcType="VARCHAR"/>
+            <result property="xzqhCode" column="xzqhCode" jdbcType="VARCHAR"/>
+            <result property="prices" column="prices" jdbcType="VARCHAR"/>
+            <result property="housetype" column="housetype" jdbcType="VARCHAR"/>
+            <result property="selladdr" column="selladdr" jdbcType="VARCHAR"/>
+            <result property="housenum" column="housenum" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="projname" column="projname" jdbcType="VARCHAR"/>
+            <result property="projaddr" column="projaddr" jdbcType="VARCHAR"/>
+            <result property="devpeople" column="devpeople" jdbcType="VARCHAR"/>
+            <result property="picture" column="picture" jdbcType="VARCHAR"/>
+            <result property="the_geom" column="the_geom" jdbcType="INTEGER"/>
+            <result property="createTime" column="createTime" jdbcType="TIMESTAMP"/>
+            <result property="updateTime" column="updateTime" jdbcType="TIMESTAMP"/>
+            <result property="isDelete" column="isDelete" jdbcType="TINYINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,provice,city,
+        area,xzqhCode,prices,
+        housetype,selladdr,housenum,
+        phone,projname,projaddr,
+        devpeople,picture,the_geom,
+        createTime,updateTime,isDelete
+    </sql>
+</mapper>
