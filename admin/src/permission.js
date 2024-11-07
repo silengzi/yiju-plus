@@ -19,6 +19,7 @@ router.beforeEach((to, from, next) => {
   to.meta && typeof to.meta.title !== 'undefined' && setDocumentTitle(`${i18nRender(to.meta.title)} - ${domTitle}`)
   /* has token */
   const token = storage.get(ACCESS_TOKEN)
+  console.log('token', token)
   if (token) {
     if (to.path === loginRoutePath) {
       next({ path: defaultRoutePath })
@@ -30,7 +31,7 @@ router.beforeEach((to, from, next) => {
         store
           .dispatch('GetInfo')
           .then(res => {
-            console.log('res', res)
+            console.log('res1', res)
             // 根据用户权限信息生成可访问的路由表
             store.dispatch('GenerateRoutes', { token, ...res }).then(() => {
               // 动态添加可访问路由表

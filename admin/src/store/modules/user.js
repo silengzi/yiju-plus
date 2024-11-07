@@ -3,6 +3,9 @@ import expirePlugin from 'store/plugins/expire'
 import { login, getInfo, logout } from '@/api/login'
 import { ACCESS_TOKEN } from '@/store/mutation-types'
 import { welcome } from '@/utils/util'
+import {
+  info
+} from '@/mock/services/user'
 
 storage.addPlugin(expirePlugin)
 const user = {
@@ -39,9 +42,13 @@ const user = {
     Login ({ commit }, userInfo) {
       return new Promise((resolve, reject) => {
         login(userInfo).then(response => {
-          console.log('login response:', response)
+          // console.log('login response:', response)
           // const result = response.data
-          const result = '{"token":"admin-token"}'
+          // const result = response.result
+          const result = {
+            token: '4291d7da9005377ec9aec4a71ea837f'
+          }
+          // console.log('result.token:', result.token)
           storage.set(ACCESS_TOKEN, result.token, new Date().getTime() + 7 * 24 * 60 * 60 * 1000)
           commit('SET_TOKEN', result.token)
           resolve()
@@ -56,7 +63,9 @@ const user = {
       return new Promise((resolve, reject) => {
         // 请求后端获取用户信息 /api/user/info
         getInfo().then(response => {
-          const { result } = response
+          const result = response.data
+          // debugger
+          result.role = info().result.role
           if (result.role && result.role.permissions.length > 0) {
             const role = { ...result.role }
             role.permissions = result.role.permissions.map(permission => {
